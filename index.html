@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wo">WORKOUT</div>
+      <div class="sub_wo">企業インサート</div>
+    </header>
+
+    <form>
+      <div class="midle">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp">会社名</label>
+          <div class="linp">
+            <input
+              type="text"
+              class="input form-control company"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <!-- <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        > -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp">商品名</label>
+          <div class="linp">
+            <input
+              type="text"
+              class="input form-control service"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <!-- <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        > -->
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" class="labelinp"
+            >商品紹介</label
+          >
+          <div class="linp">
+            <textarea
+              class="input form-control intro"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+        <div class="custom-file" style="width: 60%; margin: 30px;">
+          <label class="custom-file-label" for="customFile"
+            >商品イメージ画像</label
+          >
+          <input type="file" class="custom-file-input" id="customFile" />
+        </div>
+        <fieldset class="form-group" style="margin: 60px;">
+          <div class="row">
+            <div class="col-sm-10" style="display: flex;">
+              <div class="form-check" style="margin-right: 20px;">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="feetype"
+                  id="gridRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="gridRadios1">
+                  売り切り型
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="feetype"
+                  id="gridRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="gridRadios2">
+                  ストック型
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp">販売報酬</label>
+          <div class="linp">
+            <input
+              type="text"
+              class="input form-control fee"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <!-- <small id="emailHelp" class="form-text text-muted"
+                      >We'll never share your email with anyone else.</small
+                    > -->
+        </div>
+
+        <fieldset class="form-group" style="margin:60px;">
+          <div class="row">
+            <div class="col-sm-10" style="display: flex;">
+              <div class="form-check" style="margin-right: 20px;">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="target"
+                  id="gridRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="gridRadios1">
+                  法人向け
+                </label>
+              </div>
+              <div class="form-check" style="margin-right: 20px;">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="target"
+                  id="gridRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="gridRadios2">
+                  個人向け
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="target"
+                  id="gridRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="gridRadios2">
+                  個人、法人両方
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp"
+            >希望セールス先</label
+          >
+          <div style="display: flex;">
+            <input
+              style="width: 30%;"
+              type="text"
+              class="form-control industry"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp">対象エリア</label>
+          <div class="linp">
+            <input
+              type="text"
+              class="input form-control area"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="labelinp">販売価格</label>
+          <div class="linp">
+            <input
+              type="text"
+              class="input form-control price"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <!-- <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div> -->
+        <!-- <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div> -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="margin: 100px;"
+          id="send"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCCZzmYrULkiqLsUbplEWH78BqrEGMjc5A",
+        authDomain: "workout-202011.firebaseapp.com",
+        databaseURL: "https://workout-202011.firebaseio.com",
+        projectId: "workout-202011",
+        storageBucket: "workout-202011.appspot.com",
+        messagingSenderId: "1089102552787",
+        appId: "1:1089102552787:web:2d42d1d32b92c64f7c3e26",
+        measurementId: "G-8FHFXPXHHN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore().collection("company_info");
+
+      function getNowDatetime() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = ("0" + (date.getMonth() + 1)).slice(-2);
+        const day = ("0" + date.getDate()).slice(-2);
+        const hour = ("0" + date.getHours()).slice(-2);
+        const min = ("0" + date.getMinutes()).slice(-2);
+        const sec = ("0" + date.getSeconds()).slice(-2);
+        return `${year}-${month}-${day}T${hour}:${min}:${sec}`;
+      }
+
+      function feetype() {
+        var elements = document.getElementsByName("feetype");
+
+        // 選択状態の値を取得
+        for (var a = "", i = elements.length; i--; ) {
+          if (elements[i].checked) {
+            var a = elements[i].value;
+            break;
+          }
+        }
+
+        if (a === "") {
+          // 未選択状態
+        } else {
+          // aには選択状態の値が代入されている
+          return [i];
+        }
+      }
+
+      function target() {
+        var elements = document.getElementsByName("target");
+
+        // 選択状態の値を取得
+        for (var a = "", i = elements.length; i--; ) {
+          if (elements[i].checked) {
+            var a = elements[i].value;
+            break;
+          }
+        }
+
+        if (a === "") {
+          // 未選択状態
+        } else {
+          // aには選択状態の値が代入されている
+          return [i];
+        }
+      }
+
+      $("#send").on("click", function() {
+        const data = {
+          company: $(".company").val()
+          // service: $(".service").val(),
+          // intro: $(".intro").val(),
+          // // feetype: feetype(),
+          // fee: $(".fee").val(),
+          // // target: target(),
+          // industry: $(".industry").val(),
+          // area: $(".area").val(),
+          // price: $(".price").val(),
+          // time: getNowDatetime()
+        };
+        alert("ok");
+        console.log(company);
+        // console.log(service);
+        // console.log(intro);
+        // console.log(feetype);
+        // console.log(fee);
+        // console.log(target);
+        // console.log(industry);
+        // console.log(area);
+        // console.log(price);
+        // console.log(time);
+
+        db.add(data);
+        // $("#text").val("");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+header {
+  height: 50px;
+  background-color: bisque;
+  display: flex;
+}
+
+.midle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.form-group {
+  width: 60%;
+  margin: 20px;
+}
+.input {
+  width: 60%;
+}
+
+.linp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wo {
+  font-size: 30px;
+  font-family: "Avenir";
+  margin-left: 20px;
+}
+.sub_wo {
+  margin-left: 150px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
