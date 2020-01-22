@@ -61,11 +61,27 @@
             ></textarea>
           </div>
         </div>
-        <div class="custom-file" style="width: 60%; margin: 30px;">
-          <label class="custom-file-label" for="customFile"
-            >商品イメージ画像</label
-          >
-          <input type="file" class="custom-file-input" id="customFile" />
+        <div
+          class="custom-file"
+          style="width: 60%; margin: 30px; display: flex;"
+        >
+          <div>
+            <label
+              class="custom-file-label products"
+              for="customFile"
+              style="width: 50%;"
+              >商品イメージ画像</label
+            >
+            <input
+              type="file"
+              class="custom-file-input pict"
+              id="customFile"
+              accept="image/*"
+              multiple="multiple"
+              name="imgs[]"
+            />
+          </div>
+          <div id="add_pict"></div>
         </div>
         <fieldset class="form-group" style="margin: 60px;">
           <div class="row">
@@ -208,7 +224,7 @@
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div> -->
         <button
-          type="submit"
+          type="button"
           class="btn btn-primary"
           style="margin: 100px;"
           id="send"
@@ -217,12 +233,14 @@
         </button>
       </div>
     </form>
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
 
     <script>
@@ -239,8 +257,48 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+      // firebase.analytics();
+    </script>
+    <script>
       const db = firebase.firestore().collection("company_info");
+
+      var dataUri = "";
+
+      document
+        .getElementById("customFile")
+        .addEventListener("change", function() {
+          // フォームで選択された全ファイルを取得
+          var fileList = this.files;
+
+          // 個数分の画像を表示する
+          for (var i = 0, l = fileList.length; l > i; i++) {
+            // FileReaderオブジェクトを作成
+            var fileReader = new FileReader();
+
+            // 読み込み後の処理を決めておく
+            fileReader.onload = function() {
+              // Data URIを取得
+              dataUri = this.result;
+
+              // HTMLに書き出し (src属性にData URIを指定)
+              $("#add_pict").html(
+                '<img src="' + dataUri + '" class="add_img"></a>'
+                //   < a href = "' +
+                //   dataUri +
+                // '" target="_blank">
+              );
+              // document.body.innerHTML +=
+              //   '<a href="' +
+              //   dataUri +
+              //   '" target="_blank"><img src="' +
+              //   dataUri +
+              //   '"></a>';
+            };
+
+            // ファイルをData URIとして読み込む
+            fileReader.readAsDataURL(fileList[i]);
+          }
+        });
 
       function getNowDatetime() {
         const date = new Date();
@@ -291,21 +349,49 @@
         }
       }
 
+      var url_pict = "";
+
       $("#send").on("click", function() {
-        const data = {
-          company: $(".company").val()
-          // service: $(".service").val(),
-          // intro: $(".intro").val(),
-          // // feetype: feetype(),
-          // fee: $(".fee").val(),
-          // // target: target(),
-          // industry: $(".industry").val(),
-          // area: $(".area").val(),
-          // price: $(".price").val(),
-          // time: getNowDatetime()
-        };
-        alert("ok");
-        console.log(company);
+        var files = document.getElementById("customFile").files;
+
+        var image = files[0];
+
+        var ref = firebase
+          .storage()
+          .ref()
+          .child(image.name);
+
+        ref.put(image).then(function(snapshot) {
+          alert("アップロードしました");
+        });
+
+        function add() {
+          ref.getDownloadURL().then(function(url) {
+            alert(url);
+            url_pict = url;
+            console.log(url_pict);
+          });
+
+          const data = {
+            company: $(".company").val(),
+            service: $(".service").val(),
+            intro: $(".intro").val(),
+            feetype: feetype(),
+            fee: $(".fee").val(),
+            target: target(),
+            industry: $(".industry").val(),
+            area: $(".area").val(),
+            price: $(".price").val(),
+            time: getNowDatetime(),
+            pict: url_pict
+          };
+          alert("ok");
+          console.log(data.company);
+          console.log(data.pict);
+        }
+
+        add();
+
         // console.log(service);
         // console.log(intro);
         // console.log(feetype);
@@ -316,7 +402,7 @@
         // console.log(price);
         // console.log(time);
 
-        db.add(data);
+        // db.add(data);
         // $("#text").val("");
       });
     </script>
