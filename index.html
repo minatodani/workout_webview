@@ -352,6 +352,7 @@
       var url_pict = "";
 
       $("#send").on("click", function() {
+        // var result = new Promise(function(resolve) {
         var files = document.getElementById("customFile").files;
 
         var image = files[0];
@@ -362,49 +363,69 @@
           .child(image.name);
 
         ref.put(image).then(function(snapshot) {
-          alert("アップロードしました");
-        });
-
-        function add() {
-          ref.getDownloadURL().then(function(url) {
-            alert(url);
-            url_pict = url;
-            console.log(url_pict);
+          ref.getDownloadURL().then(url => {
+            console.log(url);
+            const data = {
+              company: $(".company").val(),
+              service: $(".service").val(),
+              intro: $(".intro").val(),
+              feetype: feetype(),
+              fee: $(".fee").val(),
+              target: target(),
+              industry: $(".industry").val(),
+              area: $(".area").val(),
+              price: $(".price").val(),
+              time: getNowDatetime(),
+              pict: url
+            };
+            alert("ok");
+            console.log(data.company);
+            console.log(data.pict);
+            db.add(data);
           });
-
-          const data = {
-            company: $(".company").val(),
-            service: $(".service").val(),
-            intro: $(".intro").val(),
-            feetype: feetype(),
-            fee: $(".fee").val(),
-            target: target(),
-            industry: $(".industry").val(),
-            area: $(".area").val(),
-            price: $(".price").val(),
-            time: getNowDatetime(),
-            pict: url_pict
-          };
-          alert("ok");
-          console.log(data.company);
-          console.log(data.pict);
-        }
-
-        add();
-
-        // console.log(service);
-        // console.log(intro);
-        // console.log(feetype);
-        // console.log(fee);
-        // console.log(target);
-        // console.log(industry);
-        // console.log(area);
-        // console.log(price);
-        // console.log(time);
-
-        // db.add(data);
-        // $("#text").val("");
+        });
+        alert("please wait");
       });
+
+      // result
+      //   .then(function(ref) {
+      //     console.log("ok");
+      //     ref.getDownloadURL().then(function(url) {
+      //       alert(url);
+      //       url_pict = url;
+      //       console.log(url_pict);
+      //     });
+      //   })
+      // .then(function(url_pict) {
+      //   const data = {
+      //     company: $(".company").val(),
+      //     service: $(".service").val(),
+      //     intro: $(".intro").val(),
+      //     feetype: feetype(),
+      //     fee: $(".fee").val(),
+      //     target: target(),
+      //     industry: $(".industry").val(),
+      //     area: $(".area").val(),
+      //     price: $(".price").val(),
+      //     time: getNowDatetime(),
+      //     pict: url_pict
+      //   };
+      //   alert("ok");
+      //   console.log(data.company);
+      //   console.log(data.pict);
+      // });
+
+      // console.log(service);
+      // console.log(intro);
+      // console.log(feetype);
+      // console.log(fee);
+      // console.log(target);
+      // console.log(industry);
+      // console.log(area);
+      // console.log(price);
+      // console.log(time);
+
+      // $("#text").val("");
     </script>
   </body>
 </html>
