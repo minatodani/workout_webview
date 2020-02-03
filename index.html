@@ -330,6 +330,15 @@
         }
       }
 
+      function feetype_true() {
+        if (feetype() == 0) {
+          return "売り切り型";
+        }
+        if (feetype() == 1) {
+          return "ストック型";
+        }
+      }
+
       function target() {
         var elements = document.getElementsByName("target");
 
@@ -346,6 +355,18 @@
         } else {
           // aには選択状態の値が代入されている
           return [i];
+        }
+      }
+
+      function target_true() {
+        if (target() == 0) {
+          return "法人向け";
+        }
+        if (target() == 1) {
+          return "個人向け";
+        }
+        if (target() == 2) {
+          return "法人・個人両方";
         }
       }
 
@@ -369,9 +390,9 @@
               company: $(".company").val(),
               service: $(".service").val(),
               intro: $(".intro").val(),
-              feetype: feetype(),
+              feetype: feetype_true(),
               fee: $(".fee").val(),
-              target: target(),
+              target: target_true(),
               industry: $(".industry").val(),
               area: $(".area").val(),
               price: $(".price").val(),
